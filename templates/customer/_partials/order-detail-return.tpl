@@ -1,10 +1,11 @@
 {**
- * 2007-2017 PrestaShop
+ * Copyright since 2007 PrestaShop SA and Contributors
+ * PrestaShop is an International Registered Trademark & Property of PrestaShop SA
  *
  * NOTICE OF LICENSE
  *
  * This source file is subject to the Academic Free License 3.0 (AFL-3.0)
- * that is bundled with this package in the file LICENSE.txt.
+ * that is bundled with this package in the file LICENSE.md.
  * It is also available through the world-wide-web at this URL:
  * https://opensource.org/licenses/AFL-3.0
  * If you did not receive a copy of the license and are unable to
@@ -15,25 +16,20 @@
  *
  * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
  * versions in the future. If you wish to customize PrestaShop for your
- * needs please refer to http://www.prestashop.com for more information.
+ * needs please refer to https://devdocs.prestashop.com/ for more information.
  *
- * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2017 PrestaShop SA
+ * @author    PrestaShop SA and Contributors <contact@prestashop.com>
+ * @copyright Since 2007 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
- * International Registered Trademark & Property of PrestaShop SA
  *}
 {block name='order_products_table'}
-  <form class="w-100 mw-100 form--100" id="order-return-form" action="{$urls.pages.order_follow}" method="post" novalidate autocomplete="false">
+  <form id="order-return-form" class="js-order-return-form" action="{$urls.pages.order_follow}" method="post">
 
-    <div class="box visible--desktop">
+    <div class="box hidden-sm-down">
       <table id="order-products" class="table table-bordered return">
         <thead class="thead-default">
           <tr>
-            <th class="head-checkbox">
-              <div class="custom-control custom-checkbox">
-                <input class="custom-control-input" type="checkbox" id="cb_check_all">
-                <label class="custom-control-label" for="cb_check_all"></label>
-              </div></th>
+            <th class="head-checkbox"><input type="checkbox"/></th>
             <th>{l s='Product' d='Shop.Theme.Catalog'}</th>
             <th>{l s='Quantity' d='Shop.Theme.Catalog'}</th>
             <th>{l s='Returned' d='Shop.Theme.Customeraccount'}</th>
@@ -44,28 +40,22 @@
         {foreach from=$order.products item=product name=products}
           <tr>
             <td>
-              {if !$product.customizations}
+              {if !$product.is_virtual}
                 <span id="_desktop_product_line_{$product.id_order_detail}">
-                  <div class="custom-control custom-checkbox">
-                    <input class="custom-control-input" type="checkbox" id="cb_{$product.id_order_detail}" name="ids_order_detail[{$product.id_order_detail}]" value="{$product.id_order_detail}">
-                    <label class="custom-control-label" for="cb_{$product.id_order_detail}"></label>
-                  </div>
+                  <input type="checkbox" id="cb_{$product.id_order_detail}" name="ids_order_detail[{$product.id_order_detail}]" value="{$product.id_order_detail}">
                 </span>
-              {else}
-                {foreach $product.customizations  as $customization}
-                  <span id="_desktop_product_customization_line_{$product.id_order_detail}_{$customization.id_customization}">
-                <div class="custom-control custom-checkbox">
-                  <input class="custom-control-input" type="checkbox" id="cb_{$product.id_order_detail}" name="customization_ids[{$product.id_order_detail}][]" value="{$customization.id_customization}">
-                  <label class="custom-control-label" for="cb_{$product.id_order_detail}"></label>
-              </div>
-                  </span>
-                {/foreach}
               {/if}
             </td>
             <td>
               <strong>{$product.name}</strong><br/>
-              {if $product.reference}
-                {l s='Reference' d='Shop.Theme.Catalog'}: {$product.reference}<br/>
+              {if $product.product_reference}
+                {l s='Reference' d='Shop.Theme.Catalog'}: {$product.product_reference}<br/>
+              {/if}
+              {if $product.is_virtual}
+                {l s='Virtual products can\'t be returned.' d='Shop.Theme.Customeraccount'}<br/>
+              {/if}
+              {if isset($product.download_link)}
+                <a href="{$product.download_link}">{l s='Download' d='Shop.Theme.Actions'}</a><br/>
               {/if}
               {if $product.customizations}
                 {foreach from=$product.customizations item="customization"}
@@ -85,10 +75,10 @@
                           <div class="modal-body">
                             {foreach from=$customization.fields item="field"}
                               <div class="product-customization-line row">
-                                <div class="col-sm-3 col-4 label">
+                                <div class="col-sm-3 col-xs-4 label">
                                   {$field.label}
                                 </div>
-                                <div class="col-sm-9 col-8 value">
+                                <div class="col-sm-9 col-xs-8 value">
                                   {if $field.type == 'text'}
                                     {if (int)$field.id_module}
                                       {$field.text nofilter}
@@ -96,7 +86,7 @@
                                       {$field.text}
                                     {/if}
                                   {elseif $field.type == 'image'}
-                                    <img src="{$field.image.small.url}">
+                                    <img src="{$field.image.small.url}" loading="lazy">
                                   {/if}
                                 </div>
                               </div>
@@ -110,53 +100,37 @@
               {/if}
             </td>
             <td class="qty">
-              {if !$product.customizations}
-                <div class="current">
-                  {$product.quantity}
+              <div class="current">
+                {$product.quantity}
+              </div>
+              {if $product.quantity > $product.qty_returned && !$product.is_virtual}
+                <div class="select" id="_desktop_return_qty_{$product.id_order_detail}">
+                  <select name="order_qte_input[{$product.id_order_detail}]" class="form-control form-control-select">
+                    {section name=quantity start=1 loop=$product.quantity+1-$product.qty_returned}
+                      <option value="{$smarty.section.quantity.index}">{$smarty.section.quantity.index}</option>
+                    {/section}
+                  </select>
+                  {if $product.customizations}
+                    <input type="hidden" value="1" name="customization_qty_input[{$customization.id_customization}]" />
+                  {/if}
                 </div>
-                {if $product.quantity > $product.qty_returned}
-                  <div class="select" id="_desktop_return_qty_{$product.id_order_detail}">
-                    <select name="order_qte_input[{$product.id_order_detail}]" class="custom-select">
-                      {section name=quantity start=1 loop=$product.quantity+1-$product.qty_returned}
-                        <option value="{$smarty.section.quantity.index}">{$smarty.section.quantity.index}</option>
-                      {/section}
-                    </select>
-                  </div>
                 {/if}
-              {else}
-                {foreach $product.customizations as $customization}
-                  <div class="current">
-                    {$customization.quantity}
-                  </div>
-                  <div class="select" id="_desktop_return_qty_{$product.id_order_detail}_{$customization.id_customization}">
-                    <select
-                      name="customization_qty_input[{$customization.id_customization}]"
-                      class="form-control form-control-select"
-                    >
-                      {section name=quantity start=1 loop=$customization.quantity+1}
-                        <option value="{$smarty.section.quantity.index}">{$smarty.section.quantity.index}</option>
-                      {/section}
-                    </select>
-                  </div>
-                {/foreach}
-                <div class="clearfix"></div>
-              {/if}
             </td>
-            <td class="text-right">{$product.qty_returned}</td>
-            <td class="text-right">{$product.price}</td>
-            <td class="text-right">{$product.total}</td>
+            <td class="text-xs-right">{if !$product.is_virtual}{$product.qty_returned}{/if}</td>
+            <td class="text-xs-right">{$product.price}</td>
+            <td class="text-xs-right">{$product.total}</td>
           </tr>
         {/foreach}
         <tfoot>
           {foreach $order.subtotals as $line}
             {if $line.value}
-              <tr class="text-right line-{$line.type}">
+              <tr class="text-xs-right line-{$line.type}">
                 <td colspan="5">{$line.label}</td>
                 <td colspan="2">{$line.value}</td>
               </tr>
             {/if}
           {/foreach}
-          <tr class="text-right line-{$order.totals.total.type}">
+          <tr class="text-xs-right line-{$order.totals.total.type}">
             <td colspan="5">{$order.totals.total.label}</td>
             <td colspan="2">{$order.totals.total.value}</td>
           </tr>
@@ -164,10 +138,10 @@
       </table>
     </div>
 
-    <div class="order-items visible--mobile box">
+    <div class="order-items hidden-md-up box">
       {foreach from=$order.products item=product}
         <div class="order-item">
-          <div class="">
+          <div class="row">
             <div class="checkbox">
               {if !$product.customizations}
                 <span id="_mobile_product_line_{$product.id_order_detail}"></span>
@@ -180,9 +154,12 @@
             <div class="content">
               <div class="row">
                 <div class="col-sm-5 desc">
-                  <div class="name"><label for="cb_{$product.id_order_detail}">{$product.name}</label></div>
-                  {if $product.reference}
-                    <div class="ref">{l s='Reference' d='Shop.Theme.Catalog'}: {$product.reference}</div>
+                  <div class="name">{$product.name}</div>
+                  {if $product.product_reference}
+                    <div class="ref">{l s='Reference' d='Shop.Theme.Catalog'}: {$product.product_reference}</div>
+                  {/if}
+                  {if isset($product.download_link)}
+                    <a href="{$product.download_link}">{l s='Download' d='Shop.Theme.Actions'}</a><br/>
                   {/if}
                   {if $product.customizations}
                     {foreach $product.customizations as $customization}
@@ -196,10 +173,10 @@
                 </div>
                 <div class="col-sm-7 qty">
                   <div class="row">
-                    <div class="col-4 text-sm-left text-left">
+                    <div class="col-xs-4 text-sm-left text-xs-left">
                       {$product.price}
                     </div>
-                    <div class="col-4">
+                    <div class="col-xs-4">
                       {if $product.customizations}
                         {foreach $product.customizations as $customization}
                           <div class="q">{l s='Quantity' d='Shop.Theme.Catalog'}: {$customization.quantity}</div>
@@ -215,7 +192,7 @@
                         <div>{l s='Returned' d='Shop.Theme.Customeraccount'}: {$product.qty_returned}</div>
                       {/if}
                     </div>
-                    <div class="col-4 text-right">
+                    <div class="col-xs-4 text-xs-right">
                       {$product.total}
                     </div>
                   </div>
@@ -226,18 +203,18 @@
         </div>
       {/foreach}
     </div>
-    <div class="order-totals visible--mobile box">
+    <div class="order-totals hidden-md-up box">
       {foreach $order.subtotals as $line}
         {if $line.value}
           <div class="order-total row">
-            <div class="col-8"><strong>{$line.label}</strong></div>
-            <div class="col-4 text-right">{$line.value}</div>
+            <div class="col-xs-8"><strong>{$line.label}</strong></div>
+            <div class="col-xs-4 text-xs-right">{$line.value}</div>
           </div>
         {/if}
       {/foreach}
       <div class="order-total row">
-        <div class="col-8"><strong>{$order.totals.total.label}</strong></div>
-        <div class="col-4 text-right">{$order.totals.total.value}</div>
+        <div class="col-xs-8"><strong>{$order.totals.total.label}</strong></div>
+        <div class="col-xs-4 text-xs-right">{$order.totals.total.value}</div>
       </div>
     </div>
 
@@ -248,8 +225,7 @@
       </header>
       <section class="form-fields">
         <div class="form-group">
-          <textarea cols="67" rows="3" name="returnText" class="form-control" required></textarea>
-          <div class="invalid-feedback js-invalid-feedback-browser"></div>
+          <textarea cols="67" rows="3" name="returnText" class="form-control"></textarea>
         </div>
       </section>
       <footer class="form-footer">

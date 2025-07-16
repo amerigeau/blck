@@ -1,10 +1,11 @@
 {**
- * 2007-2017 PrestaShop
+ * Copyright since 2007 PrestaShop SA and Contributors
+ * PrestaShop is an International Registered Trademark & Property of PrestaShop SA
  *
  * NOTICE OF LICENSE
  *
  * This source file is subject to the Academic Free License 3.0 (AFL-3.0)
- * that is bundled with this package in the file LICENSE.txt.
+ * that is bundled with this package in the file LICENSE.md.
  * It is also available through the world-wide-web at this URL:
  * https://opensource.org/licenses/AFL-3.0
  * If you did not receive a copy of the license and are unable to
@@ -15,31 +16,26 @@
  *
  * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
  * versions in the future. If you wish to customize PrestaShop for your
- * needs please refer to http://www.prestashop.com for more information.
+ * needs please refer to https://devdocs.prestashop.com/ for more information.
  *
- * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2017 PrestaShop SA
+ * @author    PrestaShop SA and Contributors <contact@prestashop.com>
+ * @copyright Since 2007 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
- * International Registered Trademark & Property of PrestaShop SA
  *}
-{if isset($breadcrumb.links[1])}
-<nav data-depth="{$breadcrumb.count}" class="visible--desktop">
-  <ol class="breadcrumb">
-    {foreach from=$breadcrumb.links item=path name=breadcrumb}
+<nav data-depth="{$breadcrumb.count}" class="breadcrumb">
+  <ol>
+    {block name='breadcrumb'}
+      {foreach from=$breadcrumb.links item=path name=breadcrumb}
         {block name='breadcrumb_item'}
-            {if $smarty.foreach.breadcrumb.last}
-                <li class="breadcrumb-item active">
-                    {else}
-                <li class="breadcrumb-item">
-                <a itemprop="item" href="{$path.url}">
+          <li>
+            {if not $smarty.foreach.breadcrumb.last}
+              <a href="{$path.url}"><span>{$path.title}</span></a>
+            {else}
+              <span>{$path.title}</span>
             {/if}
-            <span itemprop="name">{$path.title}</span>
-        {if !$smarty.foreach.breadcrumb.last}
-            </a>
-        {/if}
-            </li>
+          </li>
         {/block}
-    {/foreach}
+      {/foreach}
+    {/block}
   </ol>
 </nav>
-{/if}

@@ -1,10 +1,11 @@
 {**
- * 2007-2017 PrestaShop
+ * Copyright since 2007 PrestaShop SA and Contributors
+ * PrestaShop is an International Registered Trademark & Property of PrestaShop SA
  *
  * NOTICE OF LICENSE
  *
  * This source file is subject to the Academic Free License 3.0 (AFL-3.0)
- * that is bundled with this package in the file LICENSE.txt.
+ * that is bundled with this package in the file LICENSE.md.
  * It is also available through the world-wide-web at this URL:
  * https://opensource.org/licenses/AFL-3.0
  * If you did not receive a copy of the license and are unable to
@@ -15,52 +16,60 @@
  *
  * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
  * versions in the future. If you wish to customize PrestaShop for your
- * needs please refer to http://www.prestashop.com for more information.
+ * needs please refer to https://devdocs.prestashop.com/ for more information.
  *
- * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2017 PrestaShop SA
+ * @author    PrestaShop SA and Contributors <contact@prestashop.com>
+ * @copyright Since 2007 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
- * International Registered Trademark & Property of PrestaShop SA
  *}
-<div class="product-variants">
+<div class="product-variants js-product-variants">
   {foreach from=$groups key=id_attribute_group item=group}
-      {if !empty($group.attributes)}
-      <div class="form-group product-variants-item">
+    {if !empty($group.attributes)}
+    <div class="clearfix product-variants-item">
+      <span class="control-label">{$group.name}{l s=': ' d='Shop.Theme.Catalog'}
+          {foreach from=$group.attributes key=id_attribute item=group_attribute}
+            {if $group_attribute.selected}{$group_attribute.name}{/if}
+          {/foreach}
+      </span>
       {if $group.group_type == 'select'}
-          <label for="group_{$id_attribute_group}">{$group.name}</label>
-          <div>
-          <select
-          class="custom-select w-auto"
+        <select
+          class="form-control form-control-select"
           id="group_{$id_attribute_group}"
+          aria-label="{$group.name}"
           data-product-attribute="{$id_attribute_group}"
           name="group[{$id_attribute_group}]">
           {foreach from=$group.attributes key=id_attribute item=group_attribute}
             <option value="{$id_attribute}" title="{$group_attribute.name}"{if $group_attribute.selected} selected="selected"{/if}>{$group_attribute.name}</option>
           {/foreach}
         </select>
-          </div>
       {elseif $group.group_type == 'color'}
-          <div class="label">{$group.name}</div>
-          <div class="clearfix">
+        <ul id="group_{$id_attribute_group}">
           {foreach from=$group.attributes key=id_attribute item=group_attribute}
-              <label class="label-color">
-                <input class="input-color d--none" type="radio" data-product-attribute="{$id_attribute_group}" name="group[{$id_attribute_group}]" value="{$id_attribute}"{if $group_attribute.selected} checked="checked"{/if}>
+            <li class="float-xs-left input-container">
+              <label aria-label="{$group_attribute.name}">
+                <input class="input-color" type="radio" data-product-attribute="{$id_attribute_group}" name="group[{$id_attribute_group}]" value="{$id_attribute}" title="{$group_attribute.name}"{if $group_attribute.selected} checked="checked"{/if}>
                 <span
-                  {if $group_attribute.html_color_code && !$group_attribute.texture}class="color" style="background-color: {$group_attribute.html_color_code}" {/if}
-                  {if $group_attribute.texture}class="color texture" style="background-image: url({$group_attribute.texture})" {/if}
-                ><span class="sr-only">{$group_attribute.name}</span></span>
+                  {if $group_attribute.texture}
+                    class="color texture" style="background-image: url({$group_attribute.texture})"
+                  {elseif $group_attribute.html_color_code}
+                    class="color" style="background-color: {$group_attribute.html_color_code}"
+                  {/if}
+                ><span class="attribute-name sr-only">{$group_attribute.name}</span></span>
               </label>
+            </li>
           {/foreach}
-          </div>
-
+        </ul>
       {elseif $group.group_type == 'radio'}
-          <div class="label">{$group.name}</div>
+        <ul id="group_{$id_attribute_group}">
           {foreach from=$group.attributes key=id_attribute item=group_attribute}
-              <div class="custom-control custom-radio">
-                <input id="r-variant-{$id_attribute_group}-{$id_attribute}" class="custom-control-input" type="radio" data-product-attribute="{$id_attribute_group}" name="group[{$id_attribute_group}]" value="{$id_attribute}"{if $group_attribute.selected} checked="checked"{/if}>
-                <label class="custom-control-label" for="r-variant-{$id_attribute_group}-{$id_attribute}">{$group_attribute.name}</label>
-              </div>
+            <li class="input-container float-xs-left">
+              <label>
+                <input class="input-radio" type="radio" data-product-attribute="{$id_attribute_group}" name="group[{$id_attribute_group}]" value="{$id_attribute}" title="{$group_attribute.name}"{if $group_attribute.selected} checked="checked"{/if}>
+                <span class="radio-label">{$group_attribute.name}</span>
+              </label>
+            </li>
           {/foreach}
+        </ul>
       {/if}
     </div>
     {/if}

@@ -1,10 +1,11 @@
 {**
- * 2007-2017 PrestaShop
+ * Copyright since 2007 PrestaShop SA and Contributors
+ * PrestaShop is an International Registered Trademark & Property of PrestaShop SA
  *
  * NOTICE OF LICENSE
  *
  * This source file is subject to the Academic Free License 3.0 (AFL-3.0)
- * that is bundled with this package in the file LICENSE.txt.
+ * that is bundled with this package in the file LICENSE.md.
  * It is also available through the world-wide-web at this URL:
  * https://opensource.org/licenses/AFL-3.0
  * If you did not receive a copy of the license and are unable to
@@ -15,12 +16,11 @@
  *
  * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
  * versions in the future. If you wish to customize PrestaShop for your
- * needs please refer to http://www.prestashop.com for more information.
+ * needs please refer to https://devdocs.prestashop.com/ for more information.
  *
- * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2017 PrestaShop SA
+ * @author    PrestaShop SA and Contributors <contact@prestashop.com>
+ * @copyright Since 2007 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
- * International Registered Trademark & Property of PrestaShop SA
  *}
 {extends file='page.tpl'}
 
@@ -45,29 +45,7 @@
       <p>{l s='List of pages in %category_name%:' d='Shop.Theme.Global' sprintf=['%category_name%' => $cms_category.name]}</p>
       <ul>
         {foreach from=$cms_pages item=cms_page}
-          {* LATOUTFRANCAIS - ARNAUD MERIGEAU - TUTO LANCER SON BLOG - 09/06/2020 *}
-          {if $cms_category.id == 2}
-            {* catégorie blog *}
-            <li class="li-category-blog">
-                <a href="{$cms_page.link}" class="title">{$cms_page.meta_title}</a>
-                <span class="date">{$cms_page.date}</span>
-                {if $cms_page.image}
-                  <div class="cms_banner">
-                      <a href="{$cms_page.link}" class="title">
-                          <img src="{$urls.base_url}/modules/amcmsfield/img/{$cms_page.image}" alt="{$cms_page.meta_title}" title="{$cms_page.meta_title}" /> 
-                      </a>
-                  </div>
-                {/if}  
-                {$cms_page.excerpt nofilter}
-                <span><a href="{$cms_page.link}" class="button btn btn-primary">{l s='Lire la suite'}</a></span>
-            </li>
-          {else}
-            {* catégorie normal *}
-            <li>
-                <a href="{$cms_page.link}">{$cms_page.meta_title}</a>
-            </li>
-          {/if}
-          {* -FIN- LATOUTFRANCAIS - ARNAUD MERIGEAU - TUTO LANCER SON BLOG *}
+          <li><a href="{$cms_page.link}">{$cms_page.meta_title}</a></li>
         {/foreach}
       </ul>
     {/if}

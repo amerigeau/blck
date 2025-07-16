@@ -1,10 +1,11 @@
 {**
- * 2007-2017 PrestaShop
+ * Copyright since 2007 PrestaShop SA and Contributors
+ * PrestaShop is an International Registered Trademark & Property of PrestaShop SA
  *
  * NOTICE OF LICENSE
  *
  * This source file is subject to the Academic Free License 3.0 (AFL-3.0)
- * that is bundled with this package in the file LICENSE.txt.
+ * that is bundled with this package in the file LICENSE.md.
  * It is also available through the world-wide-web at this URL:
  * https://opensource.org/licenses/AFL-3.0
  * If you did not receive a copy of the license and are unable to
@@ -15,12 +16,11 @@
  *
  * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
  * versions in the future. If you wish to customize PrestaShop for your
- * needs please refer to http://www.prestashop.com for more information.
+ * needs please refer to https://devdocs.prestashop.com/ for more information.
  *
- * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2017 PrestaShop SA
+ * @author    PrestaShop SA and Contributors <contact@prestashop.com>
+ * @copyright Since 2007 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
- * International Registered Trademark & Property of PrestaShop SA
  *}
 {extends file='page.tpl'}
 
@@ -29,53 +29,50 @@
 {/block}
 
 {block name='page_content'}
-  <form class="js-customer-form needs-validation" id="guestOrderTrackingForm" action="{$urls.pages.guest_tracking}" method="get" novalidate autocomplete="false">
-    <header class="alert alert-info">
+  <form id="guestOrderTrackingForm" action="{$urls.pages.guest_tracking}" method="get">
+    <header>
       <p>{l s='To track your order, please enter the following information:' d='Shop.Theme.Customeraccount'}</p>
     </header>
 
     <section class="form-fields">
+    
+      <input type="hidden" name="controller" value="guest-tracking" >
 
-      <div class="form-group">
-        <label for="order_reference">
+      <div class="form-group row">
+        <label class="col-md-3 form-control-label required">
           {l s='Order Reference:' d='Shop.Forms.Labels'}
         </label>
+        <div class="col-md-6">
           <input
             class="form-control"
             name="order_reference"
             type="text"
             size="8"
             value="{if isset($smarty.request.order_reference)}{$smarty.request.order_reference}{/if}"
-            id="order_reference"
-            required
           >
-          <small class="form-control-comment">
+          <div class="form-control-comment">
             {l s='For example: QIIXJXNUI or QIIXJXNUI#1' d='Shop.Theme.Customeraccount'}
-          </small>
-        <div class="invalid-feedback js-invalid-feedback-browser"></div>
-
+          </div>
+        </div>
       </div>
 
-      <div class="form-group">
-        <label for="email_guest">
+      <div class="form-group row">
+        <label class="col-md-3 form-control-label required">
           {l s='Email:' d='Shop.Forms.Labels'}
         </label>
+        <div class="col-md-6">
           <input
             class="form-control"
             name="email"
             type="email"
             value="{if isset($smarty.request.email)}{$smarty.request.email}{/if}"
-            id="email_guest"
-            autocomplete="email"
-            required
           >
-        <div class="invalid-feedback js-invalid-feedback-browser"></div>
-
+        </div>
       </div>
 
     </section>
 
-    <footer class="form-footer">
+    <footer class="form-footer text-sm-center clearfix">
       <button class="btn btn-primary" type="submit">
         {l s='Send' d='Shop.Theme.Actions'}
       </button>

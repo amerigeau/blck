@@ -1,10 +1,11 @@
 {**
- * 2007-2017 PrestaShop
+ * Copyright since 2007 PrestaShop SA and Contributors
+ * PrestaShop is an International Registered Trademark & Property of PrestaShop SA
  *
  * NOTICE OF LICENSE
  *
  * This source file is subject to the Academic Free License 3.0 (AFL-3.0)
- * that is bundled with this package in the file LICENSE.txt.
+ * that is bundled with this package in the file LICENSE.md.
  * It is also available through the world-wide-web at this URL:
  * https://opensource.org/licenses/AFL-3.0
  * If you did not receive a copy of the license and are unable to
@@ -15,12 +16,11 @@
  *
  * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
  * versions in the future. If you wish to customize PrestaShop for your
- * needs please refer to http://www.prestashop.com for more information.
+ * needs please refer to https://devdocs.prestashop.com/ for more information.
  *
- * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2017 PrestaShop SA
+ * @author    PrestaShop SA and Contributors <contact@prestashop.com>
+ * @copyright Since 2007 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
- * International Registered Trademark & Property of PrestaShop SA
  *}
 {extends file='page.tpl'}
 
@@ -32,21 +32,32 @@
   <section id="content" class="page-content page-stores">
 
     {foreach $stores as $store}
-      <article id="store-{$store.id}" class="store-item card mb-3">
-        <div class="store-item-container card-body">
-          <div class="row">
-          <div class="col-md-3 col-lg-4 store-picture visible--desktop">
-            <img src="{$store.image.bySize.stores_default.url}" alt="{$store.image.legend}" title="{$store.image.legend}" class="img-fluid">
+      <article id="store-{$store.id}" class="store-item card">
+        <div class="store-item-container clearfix">
+          <div class="col-md-3 store-picture hidden-sm-down">
+            <picture>
+              {if !empty($store.image.bySize.stores_default.sources.avif)}<source srcset="{$store.image.bySize.stores_default.sources.avif}" type="image/avif">{/if}
+              {if !empty($store.image.bySize.stores_default.sources.webp)}<source srcset="{$store.image.bySize.stores_default.sources.webp}" type="image/webp">{/if}
+              <img
+                src="{$store.image.bySize.stores_default.url}"
+                {if !empty($store.image.legend)}
+                  alt="{$store.image.legend}"
+                  title="{$store.image.legend}"
+                {else}
+                  alt="{$store.name}"
+                {/if}
+              >
+            </picture>
           </div>
-          <div class="col-md-5 col-sm-7 col-12 col-lg-4 store-description">
+          <div class="col-md-5 col-sm-7 col-xs-12 store-description">
             <p class="h3 card-title">{$store.name}</p>
             <address>{$store.address.formatted nofilter}</address>
             {if $store.note || $store.phone || $store.fax || $store.email}
               <a data-toggle="collapse" href="#about-{$store.id}" aria-expanded="false" aria-controls="about-{$store.id}"><strong>{l s='About and Contact' d='Shop.Theme.Global'}</strong><i class="material-icons">&#xE409;</i></a>
             {/if}
           </div>
-          <div class="col-md-4 col-sm-5 col-12 col-lg-3 border-left">
-            <table class="table table-borderless table-sm">
+          <div class="col-md-4 col-sm-5 col-xs-12 divide-left">
+            <table>
               {foreach $store.business_hours as $day}
               <tr>
                 <th>{$day.day|truncate:4:'.'}</th>
@@ -64,11 +75,11 @@
         </div>
         <footer id="about-{$store.id}" class="collapse">
           <div class="store-item-footer divide-top">
-            <div class="card-block">
-              {if $store.note}
-                <p class="text-justify">{$store.note}<p>
-              {/if}
-            </div>
+            {if $store.note}
+              <div class="card-block">
+                <p class="text-justify">{$store.note}</p>
+              </div>
+            {/if}
             <ul class="card-block">
               {if $store.phone}
                 <li><i class="material-icons">&#xE0B0;</i>{$store.phone}</li>
@@ -81,7 +92,6 @@
               {/if}
             </ul>
           </div>
-        </div>
         </footer>
       </article>
     {/foreach}

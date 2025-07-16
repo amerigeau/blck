@@ -1,10 +1,11 @@
 {**
- * 2007-2017 PrestaShop
+ * Copyright since 2007 PrestaShop SA and Contributors
+ * PrestaShop is an International Registered Trademark & Property of PrestaShop SA
  *
  * NOTICE OF LICENSE
  *
  * This source file is subject to the Academic Free License 3.0 (AFL-3.0)
- * that is bundled with this package in the file LICENSE.txt.
+ * that is bundled with this package in the file LICENSE.md.
  * It is also available through the world-wide-web at this URL:
  * https://opensource.org/licenses/AFL-3.0
  * If you did not receive a copy of the license and are unable to
@@ -15,12 +16,11 @@
  *
  * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
  * versions in the future. If you wish to customize PrestaShop for your
- * needs please refer to http://www.prestashop.com for more information.
+ * needs please refer to https://devdocs.prestashop.com/ for more information.
  *
- * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2017 PrestaShop SA
+ * @author    PrestaShop SA and Contributors <contact@prestashop.com>
+ * @copyright Since 2007 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
- * International Registered Trademark & Property of PrestaShop SA
  *}
 {block name='order_messages_table'}
   {if $order.messages}
@@ -33,18 +33,17 @@
             {$message.message_date}
           </div>
           <div class="col-sm-8">
-            {$message.message nofilter}
+            {$message.message|escape:'html'|nl2br nofilter}
           </div>
         </div>
       {/foreach}
     </div>
-    <hr>
   {/if}
 {/block}
 
 {block name='order_message_form'}
   <section class="order-message-form box">
-    <form class="needs-validation" action="{$urls.pages.order_detail}" method="post" novalidate autocomplete="false">
+    <form action="{$urls.pages.order_detail}" method="post">
 
       <header>
         <h3>{l s='Add a message' d='Shop.Theme.Customeraccount'}</h3>
@@ -52,27 +51,29 @@
       </header>
 
       <section class="form-fields">
-        <div class="form-group">
-          <label for="id_product_msg">{l s='Product' d='Shop.Forms.Labels'}</label>
-            <select id="id_product_msg" name="id_product" class="custom-select">
+
+        <div class="form-group row">
+          <label class="col-md-3 form-control-label">{l s='Product' d='Shop.Forms.Labels'}</label>
+          <div class="col-md-5">
+            <select name="id_product" class="form-control form-control-select" data-role="product">
               <option value="0">{l s='-- please choose --' d='Shop.Forms.Labels'}</option>
               {foreach from=$order.products item=product}
                 <option value="{$product.id_product}">{$product.name}</option>
               {/foreach}
             </select>
+          </div>
         </div>
 
-        <div class="form-group ">
-          <label for="msgText">{l s='Message' d='Shop.Forms.Labels'}</label>
-          <div class="form-group">
-            <textarea rows="3" name="msgText" class="form-control" id="msgText" required></textarea>
-            <div class="invalid-feedback js-invalid-feedback-browser"></div>
+        <div class="form-group row">
+          <label class="col-md-3 form-control-label"></label>
+          <div class="col-md-9">
+            <textarea rows="3" name="msgText" class="form-control" data-role="msg-text"></textarea>
           </div>
         </div>
 
       </section>
 
-      <footer class="form-footer">
+      <footer class="form-footer text-sm-center">
         <input type="hidden" name="id_order" value="{$order.details.id}">
         <button type="submit" name="submitMessage" class="btn btn-primary form-control-submit">
           {l s='Send' d='Shop.Theme.Actions'}

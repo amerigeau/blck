@@ -1,10 +1,11 @@
 {**
- * 2007-2017 PrestaShop
+ * Copyright since 2007 PrestaShop SA and Contributors
+ * PrestaShop is an International Registered Trademark & Property of PrestaShop SA
  *
  * NOTICE OF LICENSE
  *
  * This source file is subject to the Academic Free License 3.0 (AFL-3.0)
- * that is bundled with this package in the file LICENSE.txt.
+ * that is bundled with this package in the file LICENSE.md.
  * It is also available through the world-wide-web at this URL:
  * https://opensource.org/licenses/AFL-3.0
  * If you did not receive a copy of the license and are unable to
@@ -15,12 +16,11 @@
  *
  * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
  * versions in the future. If you wish to customize PrestaShop for your
- * needs please refer to http://www.prestashop.com for more information.
+ * needs please refer to https://devdocs.prestashop.com/ for more information.
  *
- * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2017 PrestaShop SA
+ * @author    PrestaShop SA and Contributors <contact@prestashop.com>
+ * @copyright Since 2007 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
- * International Registered Trademark & Property of PrestaShop SA
  *}
 {extends file='page.tpl'}
 
@@ -29,7 +29,7 @@
 {/block}
 
 {block name='page_content'}
-    <form action="{$urls.pages.password}" method="post" class="needs-validation" novalidate autocomplete="false">
+    <form action="{$urls.pages.password}" method="post">
     <ul class="ps-alert-error">
       {foreach $errors as $error}
         <li class="item">
@@ -44,36 +44,49 @@
     </ul>
       <section class="form-fields renew-password">
 
-        <div class="email form-group">
+        <div class="email">
           {l
             s='Email address: %email%'
             d='Shop.Theme.Customeraccount'
             sprintf=['%email%' => $customer_email|stripslashes]}
         </div>
 
-          <div class="form-group">
-            <label for="new_password">{l s='New password' d='Shop.Forms.Labels'}</label>
-              <input id="new_password" class="form-control" type="password" data-validate="isPasswd" name="passwd" value="" required pattern=".{literal}{{/literal}5,{literal}}{/literal}">
-            <small class="form-text text-muted">{l s='Your password must be at least %min% characters long.' d='Shop.Forms.Help' sprintf=['%min%' => 5]}</small>
-            <div class="invalid-feedback js-invalid-feedback-browser"></div>
-
-
+        <div class="container-fluid field-password-policy">
+          <div class="row form-group">
+            <label class="form-control-label col-md-3 offset-md-2">{l s='New password' d='Shop.Forms.Labels'}</label>
+            <div class="col-md-4 js-input-column">
+            <input
+              class="form-control"
+              type="password"
+              data-validate="isPasswd"
+              name="passwd"
+              value=""
+              {if isset($configuration.password_policy.minimum_length)}data-minlength="{$configuration.password_policy.minimum_length}"{/if}
+              {if isset($configuration.password_policy.maximum_length)}data-maxlength="{$configuration.password_policy.maximum_length}"{/if}
+              {if isset($configuration.password_policy.minimum_score)}data-minscore="{$configuration.password_policy.minimum_score}"{/if}
+            >
+            </div>
           </div>
 
-          <div class="form-group">
-            <label for="new_password_validation">{l s='Confirmation' d='Shop.Forms.Labels'}</label>
-              <input id="new_password_validation" class="form-control" type="password" data-validate="isPasswd" name="confirmation" value="" required pattern=".{literal}{{/literal}5,{literal}}{/literal}">
-            <small class="form-text text-muted">{l s='Your password must be at least %min% characters long.' d='Shop.Forms.Help' sprintf=['%min%' => 5]}</small>
-            <div class="invalid-feedback js-invalid-feedback-browser"></div>
+          <div class="row form-group">
+            <label class="form-control-label col-md-3 offset-md-2">{l s='Confirmation' d='Shop.Forms.Labels'}</label>
+            <div class="col-md-4">
+              <input class="form-control" type="password" data-validate="isPasswd" name="confirmation" value="">
+            </div>
           </div>
 
           <input type="hidden" name="token" id="token" value="{$customer_token}">
           <input type="hidden" name="id_customer" id="id_customer" value="{$id_customer}">
           <input type="hidden" name="reset_token" id="reset_token" value="{$reset_token}">
 
-          <button class="btn btn-primary" type="submit" name="submit">
-            {l s='Change Password' d='Shop.Theme.Actions'}
-          </button>
+          <div class="row form-group">
+            <div class="offset-md-5">
+              <button class="btn btn-primary" type="submit" name="submit">
+                {l s='Change Password' d='Shop.Theme.Actions'}
+              </button>
+            </div>
+          </div>
+        </div>
 
       </section>
     </form>

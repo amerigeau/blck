@@ -1,10 +1,11 @@
 {**
- * 2007-2017 PrestaShop
+ * Copyright since 2007 PrestaShop SA and Contributors
+ * PrestaShop is an International Registered Trademark & Property of PrestaShop SA
  *
  * NOTICE OF LICENSE
  *
  * This source file is subject to the Academic Free License 3.0 (AFL-3.0)
- * that is bundled with this package in the file LICENSE.txt.
+ * that is bundled with this package in the file LICENSE.md.
  * It is also available through the world-wide-web at this URL:
  * https://opensource.org/licenses/AFL-3.0
  * If you did not receive a copy of the license and are unable to
@@ -15,12 +16,11 @@
  *
  * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
  * versions in the future. If you wish to customize PrestaShop for your
- * needs please refer to http://www.prestashop.com for more information.
+ * needs please refer to https://devdocs.prestashop.com/ for more information.
  *
- * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2017 PrestaShop SA
+ * @author    PrestaShop SA and Contributors <contact@prestashop.com>
+ * @copyright Since 2007 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
- * International Registered Trademark & Property of PrestaShop SA
  *}
 <div class="container">
   <div class="row">
@@ -41,23 +41,16 @@
         {hook h='displayFooterAfter'}
       {/block}
     </div>
-    <p class="text-center mb-0 pb-3">
-      {block name='copyright_link'}
-        {if $page.page_name == 'index'}
-          <a class="_blank" href="https://www.prestashop.com" target="_blank" rel="nofollow">
-            {l s='%copyright% %year%' sprintf=['%year%' => 'Y'|date, '%copyright%' => '©'] d='Shop.Theme.Global'}
-          </a>
-          <span> - </span>
-          <a class="_blank" href="https://www.arnaud-merigeau.fr" target="_blank">
-            {l s='Freelance PrestaShop' d='Shop.Theme.Global'}
-          </a>
-        {else}
-          <span> - </span>
-          <a class="_blank" href="https://www.prestashop.com" target="_blank" rel="nofollow">
-            {l s='%copyright% %year% - Ecommerce software by %prestashop%' sprintf=['%prestashop%' => 'PrestaShop™', '%year%' => 'Y'|date, '%copyright%' => '©'] d='Shop.Theme.Global'}
-          </a>
-        {/if}
-      {/block}
-    </p>
+    <div class="row">
+      <div class="col-md-12">
+        <p class="text-sm-center">
+          {block name='copyright_link'}
+            <a href="https://www.prestashop-project.org/" target="_blank" rel="noopener noreferrer nofollow">
+              {l s='%copyright% %year% - Ecommerce software by %prestashop%' sprintf=['%prestashop%' => 'PrestaShop™', '%year%' => 'Y'|date, '%copyright%' => '©'] d='Shop.Theme.Global'}
+            </a>
+          {/block}
+        </p>
+      </div>
+    </div>
   </div>
 </div>
