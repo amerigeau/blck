@@ -7159,6 +7159,9 @@ body#checkout #hook-display-after-carrier > [class^="col"].links .row > [class^=
 .product-actions .product-add-to-cart {
     word-wrap: break-word;
 }
+.product-actions .product-add-to-cart .control-label {
+    display: none;
+}
 .block-social ul,
 .product-quantity {
     display: -webkit-box;
@@ -7224,6 +7227,9 @@ body#checkout #hook-display-after-carrier > [class^="col"].links .row > [class^=
 }
 .product-prices {
     margin-top: 1.25rem;
+	display: flex;
+	align-items: flex-start;
+	gap: .25rem;
 }
 .product-prices .tax-shipping-delivery-label {
     font-size: 0.8125rem;
@@ -10124,6 +10130,18 @@ body#checkout #hook-display-after-carrier > [class^="col"].links .row > [class^=
     }
     #blockcart-modal .cart-content .cart-content-btn .btn + .btn{
         margin-bottom: 1rem;
+    }
+    .product-quantity{
+        flex-wrap: wrap;
+    }
+    .product-actions .add-to-cart .material-icons{
+        display: none;
+    }
+    .wishlist-button-add{
+        margin: 1rem 0 0;
+    }
+    .social-sharing{
+        margin-top: .5rem;
     }
 }
 @media (max-width: 767px) {
