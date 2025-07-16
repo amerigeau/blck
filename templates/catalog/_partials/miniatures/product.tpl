@@ -118,6 +118,15 @@
         {block name='product_reviews'}
           {hook h='displayProductListReviews' product=$product}
         {/block}
+
+        {block name='product_add_to_cart'}
+          <form class="add-to-cart mt-1" action="{$urls.pages.cart}" method="post">
+              <input type="hidden" name="token" value="{$static_token}">
+              <input type="hidden" value="{$product.id_product}" name="id_product">
+              <input type="number" class="input-group form-control" name="qty" value="1">
+              <button data-button-action="add-to-cart" {if !$product.add_to_cart_url}disabled{/if} class="btn btn-primary">{l s='Add to cart' d='Shop.Theme.Actions'}</button>
+          </form>
+        {/block}
       </div>
 
       {include file='catalog/_partials/product-flags.tpl'}

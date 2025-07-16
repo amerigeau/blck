@@ -1337,23 +1337,23 @@ fieldset[disabled] a.btn {
 .btn-primary,
 .btn-primary:hover {
     color: #fff;
-    background-color: #fba000;
+    background-color: #000000;
     border-color: transparent;
 }
 .btn-primary:hover {
-    background-color: #1d93ab;
+    background-color: #fba000;
 }
 .btn-primary.focus,
 .btn-primary:focus {
     color: #fff;
-    background-color: #1d93ab;
+    background-color: #000000;
     border-color: transparent;
 }
 .btn-primary.active,
 .btn-primary:active,
 .open > .btn-primary.dropdown-toggle {
     color: #fff;
-    background-color: #1d93ab;
+    background-color: #000000;
     border-color: transparent;
     background-image: none;
 }
@@ -1367,7 +1367,7 @@ fieldset[disabled] a.btn {
 .open > .btn-primary.dropdown-toggle:focus,
 .open > .btn-primary.dropdown-toggle:hover {
     color: #fff;
-    background-color: #18798d;
+    background-color: #000000;
     border-color: transparent;
 }
 .btn-primary.disabled.focus,
@@ -6478,6 +6478,13 @@ body#checkout #hook-display-after-carrier > [class^="col"].links .row > [class^=
 .product-miniature .product-price-and-shipping .discount-product {
     display: none;
 }
+.product-miniature .product-description form.add-to-cart {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: .5rem;
+}
 .product-miniature .variant-links {
     position: relative;
     top: -0.25em;
@@ -7220,7 +7227,7 @@ body#checkout #hook-display-after-carrier > [class^="col"].links .row > [class^=
 .has-discount p,
 .has-discount.product-price,
 .page-content.page-cms .has-discount ul {
-    color: #f39d72;
+    color: #000000;
 }
 .has-discount .discount {
     display: inline-block;
@@ -7230,7 +7237,7 @@ body#checkout #hook-display-after-carrier > [class^="col"].links .row > [class^=
     font-weight: 600;
     color: #fff;
     text-transform: uppercase;
-    background: #f39d72;
+    background: #000000;
 }
 .has-discount .product-unit-price,
 .product-unit-price {
@@ -7616,7 +7623,7 @@ body#checkout #hook-display-after-carrier > [class^="col"].links .row > [class^=
 .product-flags li.product-flag.discount,
 .product-flags li.product-flag.discount-amount,
 .product-flags li.product-flag.discount-percentage {
-    background-color: #f39d72;
+    background-color: #000000;
 }
 .product-flags li.product-flag.on-sale {
     -webkit-box-ordinal-group: 0;
@@ -7625,7 +7632,7 @@ body#checkout #hook-display-after-carrier > [class^="col"].links .row > [class^=
     width: 100%;
     margin-top: 0 !important;
     text-align: center;
-    background: #f39d72;
+    background: #000000;
 }
 .product-customization {
     margin: 2.5rem 0;
@@ -7732,6 +7739,7 @@ body#checkout #hook-display-after-carrier > [class^="col"].links .row > [class^=
     background-position: 0.25rem 0.25rem;
     background-size: 2rem 2rem;
     border-radius: 50%;
+    filter: grayscale(100%);
 }
 .social-sharing li a {
     display: block;
@@ -10021,6 +10029,12 @@ body#checkout #hook-display-after-carrier > [class^="col"].links .row > [class^=
         display: none;
     }
     .product-miniature .highlighted-informations {
+        display: none;
+    }
+    .product-miniature .product-description form.add-to-cart .btn-primary {
+        width: 100%;
+    }
+    .product-miniature .product-description form.add-to-cart [name="qty"] {
         display: none;
     }
     .products-selection .filter-button {
