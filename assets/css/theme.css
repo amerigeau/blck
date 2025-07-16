@@ -7052,6 +7052,10 @@ body#checkout #hook-display-after-carrier > [class^="col"].links .row > [class^=
 }
 #subcategories ul li .subcategory-name {
     text-transform: uppercase;
+    color: #000000;
+}
+#subcategories ul li .subcategory-name:hover {
+    color: #fba000;
 }
 #subcategories ul li .cat_desc {
     display: none;
