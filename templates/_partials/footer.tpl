@@ -43,7 +43,7 @@
     </div>
     <div class="row">
       <div class="col-md-12">
-        <p class="text-sm-center">
+        <p class="text-sm-center copyright">
           {block name='copyright_link'}
             <span>{l s='%copyright% %year%' sprintf=['%year%' => 'Y'|date, '%copyright%' => '©'] d='Shop.Theme.Global'}</span>
             <span> - </span>

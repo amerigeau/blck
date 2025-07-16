@@ -8305,6 +8305,11 @@ body#checkout #hook-display-after-carrier > [class^="col"].links .row > [class^=
 .footer-container li a {
     cursor: pointer;
 }
+.footer-container .copyright{
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    text-align: center;
+}
 .links .collapse {
     display: inherit;
 }
