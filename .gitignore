@@ -112,14 +112,6 @@ themes/*/config/settings_*.json
 app/config/parameters.old.yml
 app/config/config.php
 
-# Themes, modules and overrides
-
-override/*
-themes/*/
-!themes/classic
-!themes/_core
-!themes/_libraries
-
 # Vendors and dependencies
 
 bower_components/
@@ -127,19 +119,6 @@ node_modules/
 composer.phar
 php-cs-fixer
 .grunt/*
-
-# Translations and emails templates
-
-translations/*
-mails/*
-!mails/themes/
-!mails/_partials/
-themes/default-bootstrap/lang/*
-themes/default-bootstrap/modules/*/translations/*.php
-themes/default-bootstrap/mails/*
-!themes/default-bootstrap/mails/en/
-themes/default-bootstrap/modules/*/mails/*
-!themes/default-bootstrap/modules/*/mails/en
 
 # MISC
 
