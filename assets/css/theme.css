@@ -5131,7 +5131,7 @@ body#checkout section.checkout-step #login-form .form-control-label {
     margin-left: 0.625rem;
     font-size: 0.8125rem;
     font-weight: 600;
-    color: #6c868e;
+    color: #000000;
     border-width: 2px;
     border-radius: 2px;
 }
@@ -5142,11 +5142,11 @@ body#checkout section.checkout-step #login-form .form-control-label {
     margin-top: 0.3125rem;
 }
 .btn-tertiary-outline {
-    color: #6c868e;
+    color: #000000;
     background-color: transparent;
     background-image: none;
-    border: 0.15rem solid #6c868e;
-    border-color: #6c868e;
+    border: 0.15rem solid #000000;
+    border-color: #000000;
 }
 .btn-tertiary-outline:hover {
     color: #bbcdd2;
@@ -7428,16 +7428,17 @@ body#checkout #hook-display-after-carrier > [class^="col"].links .row > [class^=
 }
 #blockcart-modal .modal-title {
     font-size: 1rem;
-    font-weight: 400;
-    color: #353943;
+    font-weight: 700;
+    color: #000000;
+    text-transform: uppercase;
 }
 #blockcart-modal .modal-title i.material-icons {
     margin-right: 1.875rem;
-    color: #4cbb6c;
+    color: #000000;
 }
 #blockcart-modal .product-name {
     font-size: 1.125rem;
-    color: #fba000;
+    color: #000000;
 }
 #blockcart-modal .product-price {
     display: block;
@@ -7470,7 +7471,7 @@ body#checkout #hook-display-after-carrier > [class^="col"].links .row > [class^=
 .page-content.page-cms #blockcart-modal .cart-content ul.cart-products-count {
     font-size: 1rem;
     font-weight: 600;
-    color: #6c868e;
+    color: #000000;
 }
 #blockcart-modal .cart-content .page-content.page-cms ul.product-tax,
 #blockcart-modal .cart-content p.product-tax,
@@ -10110,6 +10111,19 @@ body#checkout #hook-display-after-carrier > [class^="col"].links .row > [class^=
     .sitemap {
         margin-top: 0;
     }
+    #blockcart-modal .cart-content .cart-content-btn{
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+    }
+    #blockcart-modal .cart-content .cart-content-btn .btn{
+        margin: 0;
+        width: 100%;
+    }
+    #blockcart-modal .cart-content .cart-content-btn .btn + .btn{
+        margin-bottom: 1rem;
+    }
 }
 @media (max-width: 767px) {
     .navbar-toggleable-sm .navbar-brand {
@@ -10555,6 +10569,9 @@ body#checkout #hook-display-after-carrier > [class^="col"].links .row > [class^=
     }
     #blockcart-modal .modal-body {
         padding: 1.875rem;
+    }
+    #blockcart-modal .modal-title i.material-icons{
+        margin-right: .5rem;
     }
     .product-images > li.thumb-container > .thumb:not(.selected) {
         border: 0;
