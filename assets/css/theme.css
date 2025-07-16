@@ -5015,7 +5015,7 @@ form .form-control-label {
     display: block;
     width: 12px;
     height: 12px;
-    background-color: #fba000;
+    background-color: #000000;
     border-radius: 50%;
 }
 .custom-checkbox input[type="checkbox"]:focus + span,
@@ -5068,7 +5068,7 @@ body#checkout section.checkout-step #login-form .form-control-label {
     display: inline-block;
     padding: 0 0.8125rem;
     margin-right: 1.563rem;
-    color: #4cbb6c;
+    color: #000000;
 }
 .thumb-mask > .mask {
     position: relative;
@@ -5538,7 +5538,7 @@ body#checkout .custom-checkbox span {
     margin-top: 0.1rem;
 }
 body#checkout a:hover {
-    color: #1a8196;
+    color: #fba000;
 }
 body#checkout section#content {
     margin-bottom: 1.563rem;
@@ -5618,7 +5618,7 @@ body#checkout section.checkout-step.-reachable.-current .step-number {
     font-size: 1rem;
     color: #fff;
     vertical-align: middle;
-    background-color: #00c062;
+    background-color: #000000;
     border: 0;
     border-radius: 50%;
 }
