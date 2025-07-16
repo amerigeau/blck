@@ -7072,7 +7072,7 @@ body#checkout #hook-display-after-carrier > [class^="col"].links .row > [class^=
 .product-price {
     display: inline-block;
     max-width: 100%;
-    color: #fba000;
+    color: #000000;
 }
 #blockcart-modal,
 #product-description-short {
@@ -7944,8 +7944,7 @@ body#checkout #hook-display-after-carrier > [class^="col"].links .row > [class^=
 .block-promo .promo-input + button {
     margin-top: -4px;
     margin-left: -1px;
-    text-transform: capitalize;
-    border: 2px solid #fba000;
+    min-height: 40px;
 }
 .block-promo .cart-summary-line .label,
 .block-promo .promo-name {
