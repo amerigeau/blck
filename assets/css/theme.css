@@ -6857,6 +6857,11 @@ body#checkout #hook-display-after-carrier > [class^="col"].links .row > [class^=
     font-size: 0.9375rem;
     color: #000000;
 }
+#search_filters .facet .facet-label a:hover,
+#search_filters_brands .facet .facet-label a:hover,
+#search_filters_suppliers .facet .facet-label a:hover {
+    color: #fba000;
+}
 #search_filters_brands .facet,
 #search_filters_suppliers .facet {
     padding-top: 0;
@@ -6864,6 +6869,9 @@ body#checkout #hook-display-after-carrier > [class^="col"].links .row > [class^=
 #search_filters_brands .facet .facet-label,
 #search_filters_suppliers .facet .facet-label {
     margin-bottom: 0.3125rem;
+}
+#search_filters_wrapper #search_filters .ui-widget-header{
+    background: #000000;
 }
 .pagination {
     width: 100%;
@@ -6964,6 +6972,10 @@ body#checkout #hook-display-after-carrier > [class^="col"].links .row > [class^=
 .block-categories a,
 .facets-title {
     color: #000000;
+}
+.block-categories a:hover,
+.facets-title:hover {
+    color: #fba000;
 }
 .block-categories .collapse-icons {
     position: absolute;
