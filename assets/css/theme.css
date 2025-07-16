@@ -3282,9 +3282,9 @@ a.tag:hover {
     color: #2b542c;
 }
 .alert-info {
-    background-color: #d9edf7;
-    border-color: #bcdff1;
-    color: #31708f;
+    background-color: #dedede;
+    border-color: #b9b9b9;
+    color: #000;
 }
 .alert-info hr {
     border-top-color: #a6d5ec;
@@ -4575,11 +4575,11 @@ a.text-muted:hover {
     color: #616161 !important;
 }
 .text-primary {
-    color: #fba000 !important;
+    color: #000000 !important;
 }
 a.text-primary:focus,
 a.text-primary:hover {
-    color: #1d93ab !important;
+    color: #fba000 !important;
 }
 .text-success {
     color: #4cbb6c !important;
@@ -4693,7 +4693,8 @@ body {
 	opacity: 1
 }
 #header .top-menu a[data-depth="0"]:hover,
-a:hover {
+a:hover,
+body .wishlist-list-item:hover .wishlist-list-item-title {
     color: #fba000;
     text-decoration: none;
 }
@@ -6045,6 +6046,10 @@ body#checkout #hook-display-after-carrier > [class^="col"].links .row > [class^=
 }
 .page-customer-account #content .order-actions a {
     padding: 0 0.125rem;
+    color: #000000;
+}
+.page-customer-account #content .order-actions a:hover{
+    color: #fba000;
 }
 .page-customer-account #content .forgot-password {
     padding-bottom: 0.9375rem;
@@ -6097,10 +6102,12 @@ body#checkout #hook-display-after-carrier > [class^="col"].links .row > [class^=
     margin: 0 0.9375rem;
 }
 #order-return-infos .thead-default th,
-.page-addresses .addresses-footer a,
+.page-addresses .addresses-footer a{
+    color: #000000;
+}
 .page-addresses .addresses-footer a:hover,
 .page-my-account #content .links a:hover {
-    color: #000000;
+    color: #fba000;
 }
 .page-addresses .addresses-footer a span {
     margin-top: 0.625rem;
@@ -6250,6 +6257,10 @@ body#checkout #hook-display-after-carrier > [class^="col"].links .row > [class^=
 }
 .page-footer .account-link {
     margin-right: 1rem;
+    color: #000000;
+}
+.page-footer .account-link:hover{
+    color: #fba000;
 }
 .page-footer .account-link span {
     font-size: 0.875rem;
@@ -8434,6 +8445,12 @@ body#checkout #hook-display-after-carrier > [class^="col"].links .row > [class^=
 .sitemap ul li {
     margin-bottom: 1rem;
     font-size: 0.9rem;
+}
+.sitemap ul li a {
+    color: #000000;
+}
+.sitemap ul li a:hover{
+    color: #fba000;
 }
 .block_newsletter {
     float: inherit;
