@@ -4679,11 +4679,11 @@ body {
 #header .top-menu a[data-depth="0"]:after{
     content: '';
 	transition: all ease .3s;
-	width: 100%;
+	width: calc(100% - 0.625rem * 2);
 	height: 2px;
 	background-color: #fba000;
 	bottom: 10px;
-	left: 0;
+	left: 0.625rem;
 	opacity: 0;
 	position: absolute;
 }
@@ -5335,6 +5335,12 @@ body#checkout section.checkout-step.-reachable.-complete h1 .done {
 }
 .top-menu[data-depth="1"] {
     margin: 0.625rem;
+    padding: 0.625rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
 }
 .top-menu[data-depth="0"] {
     margin-bottom: 0;
@@ -5391,6 +5397,7 @@ body#checkout section.checkout-step.-reachable.-complete h1 .done {
 .top-menu .sub-menu ul[data-depth="1"] > li {
     float: left;
     margin: 0 1.25rem;
+    font-size: 1rem;
 }
 .top-menu .popover {
     max-width: inherit;
