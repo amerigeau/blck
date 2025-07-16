@@ -8181,6 +8181,7 @@ body#checkout #hook-display-after-carrier > [class^="col"].links .row > [class^=
 .linklist .blockcms-title a {
     color: #000000;
 }
+#wrapper .breadcrumb li a:hover,
 .account-list a:hover,
 .block_newsletter form button[type="submit"] .search:hover,
 .footer-container li a:hover {
