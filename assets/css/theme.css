@@ -359,7 +359,7 @@ figure {
 }
 a:focus,
 a:hover {
-    color: #198195;
+    color: #fba000;
     text-decoration: underline;
 }
 a:focus {
@@ -6397,6 +6397,11 @@ body#checkout #hook-display-after-carrier > [class^="col"].links .row > [class^=
     font-weight: 500;
     color: #000000;
 }
+#products .all-product-link:hover,
+.featured-products .all-product-link:hover,
+.product-accessories .all-product-link:hover {
+    color: #fba000;
+}
 .product-miniature,
 .product-miniature .product {
     display: -webkit-box;
@@ -6484,6 +6489,9 @@ body#checkout #hook-display-after-carrier > [class^="col"].links .row > [class^=
     justify-content: space-between;
     align-items: center;
     gap: .5rem;
+}
+.product-miniature .product-description form.add-to-cart [name="qty"] {
+    min-width: 2.35rem;
 }
 .product-miniature .variant-links {
     position: relative;
