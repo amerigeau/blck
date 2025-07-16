@@ -7624,7 +7624,7 @@ body#checkout #hook-display-after-carrier > [class^="col"].links .row > [class^=
     text-transform: uppercase;
     word-break: break-word;
     pointer-events: auto;
-    background: #fba000;
+    background: #000000;
 }
 .product-flags li.product-flag.online-only {
     position: absolute;
