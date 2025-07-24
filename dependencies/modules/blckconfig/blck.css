@@ -1,0 +1,17 @@
+:root {
+  --blck-title-font: 'Garamond', sans-serif;
+  --blck-text-font: 'Arial', sans-serif;
+  --blck-main-color: #2d3433;
+  --blck-secondary-color: #ed9b27;
+  --blck-bg-color: #f6f6f6;
+  --blck-btn-primary-bg: #00386e;
+  --blck-btn-primary-text: #ffffff;
+  --blck-btn-primary-bg-hover: #ed9b27;
+  --blck-btn-primary-text-hover: #ffffff;
+  --blck-btn-secondary-bg: #EBEBEB;
+  --blck-btn-secondary-text: #00386e;
+  --blck-btn-secondary-bg-hover: #00386e;
+  --blck-btn-secondary-text-hover: #EBEBEB;
+  --blck-flag-bg: #00386e;
+  --blck-flag-text: #ffffff;
+}

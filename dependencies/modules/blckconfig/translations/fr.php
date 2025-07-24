@@ -2,8 +2,8 @@
 
 global $_MODULE;
 $_MODULE = array();
-$_MODULE['<{blckconfig}prestashop>blckconfig_8319abd8c5ac33216e82c1c5f13866ee'] = 'Configuration BLCK';
-$_MODULE['<{blckconfig}prestashop>blckconfig_a4798caeaea38f9dd5221832a99085ed'] = 'Configuration du modèle.';
+$_MODULE['<{blckconfig}prestashop>blckconfig_8319abd8c5ac33216e82c1c5f13866ee'] = 'BLCK configuration';
+$_MODULE['<{blckconfig}prestashop>blckconfig_a4798caeaea38f9dd5221832a99085ed'] = 'Configuration du thème.';
 $_MODULE['<{blckconfig}prestashop>blckconfig_170ea8c8611aada597fea2a880316b3f'] = 'Configuration enregistrée.';
 $_MODULE['<{blckconfig}prestashop>blckconfig_11fdaba92799719f2e551bfd8c1fbc95'] = 'Configuration du thème BLCK';
 $_MODULE['<{blckconfig}prestashop>blckconfig_59c4ad3f3cb3d812d68fab7a354d4a63'] = 'Polices';
