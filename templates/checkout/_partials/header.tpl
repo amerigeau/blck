@@ -28,6 +28,9 @@
       <div class="row">
         <div class="col-md-6 hidden-sm-down" id="_desktop_logo">
             {renderLogo}
+            <div class="header-home-link hidden-sm-down">
+              <a href="{$urls.base_url}" title="{l s='Back to shop' d='Shop.Theme.Global'}">« {l s='Back to shop' d='Shop.Theme.Global'}</a>
+            </div>
         </div>
         <div class="col-md-6 text-xs-right hidden-sm-down">
           {hook h='displayNav1'}
@@ -59,7 +62,11 @@
         </div>
       </div>
       <div id="mobile_top_menu_wrapper" class="row hidden-md-up" style="display:none;">
-        <div class="js-top-menu mobile" id="_mobile_top_menu"></div>
+        <div class="js-top-menu mobile" id="_mobile_top_menu">
+          <div class="header-home-link">
+            <a href="{$urls.base_url}" title="{l s='Back to shop' d='Shop.Theme.Global'}">« {l s='Back to shop' d='Shop.Theme.Global'}</a>
+          </div>
+        </div>
         <div class="js-top-menu-bottom">
           <div id="_mobile_currency_selector"></div>
           <div id="_mobile_language_selector"></div>
@@ -68,5 +75,4 @@
       </div>
     </div>
   </div>
-  {hook h='displayNavFullWidth'}
 {/block}
