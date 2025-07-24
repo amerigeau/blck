@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+    <name>blckconfig</name>
+    <displayName>BLCK Config</displayName>
+    <version>1.0.0</version>
+    <author>Latoutfrancais - Arnaud Merigeau</author>
+    <tab>administration</tab>
+    <description>Template configuration.</description>
+    <ps_versions_compliancy>
+        <min>1.7.0.0</min>
+        <max>8.99.99</max>
+    </ps_versions_compliancy>
+</module> 
