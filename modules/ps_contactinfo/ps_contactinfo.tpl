@@ -64,8 +64,7 @@
     {/if}
     {if $contact_infos.email && $display_email}
       <br>
-        {l s='Email us:' d='Shop.Theme.Global'}
-        {mailto address=$contact_infos.email encode="javascript"}
+        <a href="{$urls.pages.contact}">{l s='Email us' d='Shop.Theme.Global'}</a>
     {/if}
   </div>
 </div>
