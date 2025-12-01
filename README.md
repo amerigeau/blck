@@ -4,7 +4,7 @@
 
 ![BLCK Theme](preview.png)
 
-**A modern, minimal and performant PrestaShop 1.7+ theme with advanced color customization**
+**A modern, minimal and performant PrestaShop 1.7 / 8 / 9 theme with advanced color customization**
 
 [English](#english) • [Français](#français)
 
@@ -50,7 +50,7 @@ The BLCK theme is fully compatible with all PrestaShop versions from 1.7.0.0 onw
 ### Installation
 
 #### Requirements
-- PrestaShop 1.7.0.0 or higher (compatible with PrestaShop 8 and 9)
+- PrestaShop 1.7, PrestaShop 8 and PrestaShop 9
 - PHP 7.0 or higher
 - Modern web browser with JavaScript enabled
 
@@ -238,7 +238,7 @@ Le thème BLCK est entièrement compatible avec toutes les versions de PrestaSho
 ### Installation
 
 #### Prérequis
-- PrestaShop 1.7.0.0 ou supérieur (compatible avec PrestaShop 8 et 9)
+- PrestaShop 1.7, PrestaShop 8 et PrestaShop 9
 - PHP 7.0 ou supérieur
 - Navigateur web moderne avec JavaScript activé
 
