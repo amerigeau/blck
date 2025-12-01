@@ -33,10 +33,24 @@
 
 - 🌐 Website: [www.arnaud-merigeau.fr](https://www.arnaud-merigeau.fr)
 
+### Compatibility
+
+#### PrestaShop Versions
+- ✅ **PrestaShop 1.7** (1.7.0.0 to 1.7.8.x)
+- ✅ **PrestaShop 8** (8.0.0 to 8.x.x)
+- ✅ **PrestaShop 9** (9.0.0+)
+
+The BLCK theme is fully compatible with all PrestaShop versions from 1.7.0.0 onwards.
+
+#### System Requirements
+- **PHP:** 7.0 or higher (PHP 8.0+ recommended for PrestaShop 8 and 9)
+- **Modern Web Browser:** JavaScript enabled required
+- **Disk Space:** Approximately 20 MB for theme and module installation
+
 ### Installation
 
 #### Requirements
-- PrestaShop 1.7.0.0 or higher
+- PrestaShop 1.7.0.0 or higher (compatible with PrestaShop 8 and 9)
 - PHP 7.0 or higher
 - Modern web browser with JavaScript enabled
 
@@ -207,10 +221,24 @@ The BLCK Config module works by:
 
 - 🌐 Site web : [www.arnaud-merigeau.fr](https://www.arnaud-merigeau.fr)
 
+### Compatibilité
+
+#### Versions PrestaShop
+- ✅ **PrestaShop 1.7** (1.7.0.0 à 1.7.8.x)
+- ✅ **PrestaShop 8** (8.0.0 à 8.x.x)
+- ✅ **PrestaShop 9** (9.0.0+)
+
+Le thème BLCK est entièrement compatible avec toutes les versions de PrestaShop à partir de 1.7.0.0.
+
+#### Configuration système requise
+- **PHP :** 7.0 ou supérieur (PHP 8.0+ recommandé pour PrestaShop 8 et 9)
+- **Navigateur web moderne :** JavaScript requis
+- **Espace disque :** Environ 20 Mo pour l'installation du thème et du module
+
 ### Installation
 
 #### Prérequis
-- PrestaShop 1.7.0.0 ou supérieur
+- PrestaShop 1.7.0.0 ou supérieur (compatible avec PrestaShop 8 et 9)
 - PHP 7.0 ou supérieur
 - Navigateur web moderne avec JavaScript activé
 
