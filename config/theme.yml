@@ -63,6 +63,7 @@ global_settings:
         - blockreassurance
       displayNavFullWidth:
         - blockreassurance
+        - ps_mainmenu
       displayAdminCustomers:
         - blockwishlist
       displayCustomerAccount:
@@ -79,8 +80,6 @@ global_settings:
         - ps_shoppingcart
       displayTop:
         - ps_searchbar
-      displayNavFullWidth:
-        - ps_mainmenu
       displayWrapperTop:
         - ps_imageslider
       displayHome:
