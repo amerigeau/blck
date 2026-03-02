@@ -35,7 +35,11 @@
     {hook h='displayAfterTitleTag'}
   {/block}
   <meta name="description" content="{block name='head_seo_description'}{$page.meta.description}{/block}">
-  <meta name="keywords" content="{block name='head_seo_keywords'}{$page.meta.keywords}{/block}">
+  {block name='head_seo_keywords'}
+    {if isset($page.meta.keywords)}
+      <meta name="keywords" content="{$page.meta.keywords}">
+    {/if}
+  {/block}
   {if $page.meta.robots !== 'index'}
     <meta name="robots" content="{$page.meta.robots}">
   {/if}

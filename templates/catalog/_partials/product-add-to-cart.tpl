@@ -68,7 +68,11 @@
     {block name='product_availability'}
       <span id="product-availability" class="js-product-availability">
         {if $product.show_availability && $product.availability_message}
-          {if $product.availability == 'available'}
+          {*
+            Compatibility PS 1.7/8 (availability = 'available') and PS 9 (availability = 'in_stock'):
+            treat both as "available". Keep 'last_remaining_items' as-is.
+          *}
+          {if $product.availability == 'available' || $product.availability == 'in_stock'}
             <i class="material-icons rtl-no-flip product-available">&#xE5CA;</i>
           {elseif $product.availability == 'last_remaining_items'}
             <i class="material-icons product-last-items">&#xE002;</i>

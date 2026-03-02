@@ -24,19 +24,23 @@
  *}
 <div id="_desktop_contact_link">
   <div id="contact-link">
-    {if $contact_infos.phone}
-      {* [1][/1] is for a HTML tag. *}
-      {l
-        s='Call us: [1]%phone%[/1]'
-        sprintf=[
-          '[1]' => "<a href='tel:{$contact_infos['phone']|replace:' ':''}'>",
-          '[/1]' => '</a>',
-          '%phone%' => $contact_infos.phone
-        ]
-        d='Shop.Theme.Global'
-      }
+    {if !empty($blck_nav_link_label) && !empty($blck_nav_link_url)}
+      <a href="{$blck_nav_link_url}"{if !empty($blck_nav_link_blank)} target="_blank" rel="noopener"{/if}>{$blck_nav_link_label}</a>
     {else}
-      <a href="{$urls.pages.contact}">{l s='Contact us' d='Shop.Theme.Global'}</a>
+      {if $contact_infos.phone}
+        {* [1][/1] is for a HTML tag. *}
+        {l
+          s='Call us: [1]%phone%[/1]'
+          sprintf=[
+            '[1]' => "<a href='tel:{$contact_infos['phone']|replace:' ':''}'>",
+            '[/1]' => '</a>',
+            '%phone%' => $contact_infos.phone
+          ]
+          d='Shop.Theme.Global'
+        }
+      {else}
+        <a href="{$urls.pages.contact}">{l s='Contact us' d='Shop.Theme.Global'}</a>
+      {/if}
     {/if}
   </div>
 </div>
