@@ -12,7 +12,7 @@ class BlckConfig extends Module
         $this->version = '1.0.0';
         $this->author = 'Latoutfrancais - Arnaud Merigeau';
         $this->need_instance = 0;
-        $this->ps_versions_compliancy = array('min' => '1.7.0.0', 'max' => _PS_VERSION_);
+        $this->ps_versions_compliancy = array('min' => '1.7.0.0', 'max' => '9.99.99');
         $this->bootstrap = true;
         parent::__construct();
         $this->displayName = $this->l('BLCK config');

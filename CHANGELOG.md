@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## Version 5.0.2
+
+[CORRECTIF] Page marques : image au format tableau PrestaShop 9, avec repli sur l'URL des versions 1.7 et 8
+[CORRECTIF] Liste fournisseurs : `$suppliers` en 9, `$brands` en 8
+[CORRECTIF] Commandes multi-expédition (confirmation, récapitulatif, détail compte)
+[CORRECTIF] Module BLCK Config accepté jusqu'à PrestaShop 9.99.99
+[CORRECTIF] Microdonnée `itemCondition` pour l'état produit "damaged"
+
 ## Version 5.0.1
 
 [AMÉLIORATION] Options de couleurs pour les boutons de réseaux sociaux (normal & hover)
@@ -23,6 +31,14 @@
 [AJOUT] Intégration de modules PrestaShop populaires
 
 ---
+
+## Version 5.0.2
+
+[FIX] Brands page: PrestaShop 9 image array, with a fallback for the 1.7 and 8 URL string
+[FIX] Suppliers list: `$suppliers` on 9, `$brands` on 8
+[FIX] Multi-shipment orders (confirmation, summary, customer order detail)
+[FIX] BLCK Config module accepted up to PrestaShop 9.99.99
+[FIX] `itemCondition` microdata for the "damaged" product condition
 
 ## Version 5.0.1
 

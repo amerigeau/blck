@@ -94,6 +94,7 @@
       {if $product.show_condition > 0}
         {if $product.condition == 'used'}"itemCondition": "https://schema.org/UsedCondition",{/if}
         {if $product.condition == 'refurbished'}"itemCondition": "https://schema.org/RefurbishedCondition",{/if}
+        {if $product.condition == 'damaged'}"itemCondition": "https://schema.org/DamagedCondition",{/if}
       {/if}
       "availability": "{$product.seo_availability}",
       "seller": {

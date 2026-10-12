@@ -43,14 +43,25 @@
       <div class="row">
 
         {block name='order_confirmation_table'}
-          {include
-            file='checkout/_partials/order-confirmation-table.tpl'
-            products=$order.products
-            subtotals=$order.subtotals
-            totals=$order.totals
-            labels=$order.labels
-            add_product_link=false
-          }
+          {if $is_multishipment_enabled|default:false}
+            {include
+              file='checkout/_partials/order-confirmation-table-multishipment.tpl'
+              products=$order.order_shipments
+              subtotals=$order.subtotals
+              totals=$order.totals
+              labels=$order.labels
+              add_product_link=false
+            }
+          {else}
+            {include
+              file='checkout/_partials/order-confirmation-table.tpl'
+              products=$order.products
+              subtotals=$order.subtotals
+              totals=$order.totals
+              labels=$order.labels
+              add_product_link=false
+            }
+          {/if}
         {/block}
 
         {block name='order_details'}
@@ -59,7 +70,7 @@
             <ul>
               <li id="order-reference-value">{l s='Order reference: %reference%' d='Shop.Theme.Checkout' sprintf=['%reference%' => $order.details.reference]}</li>
               <li>{l s='Payment method: %method%' d='Shop.Theme.Checkout' sprintf=['%method%' => $order.details.payment]}</li>
-              {if !$order.details.is_virtual}
+              {if !$order.details.is_virtual && !($is_multishipment_enabled|default:false)}
                 <li>
                   {l s='Shipping method: %method%' d='Shop.Theme.Checkout' sprintf=['%method%' => $order.carrier.name]}<br>
                   <em>{$order.carrier.delay}</em>

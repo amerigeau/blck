@@ -22,8 +22,26 @@
  * @copyright Since 2007 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *}
-{extends file='catalog/brands.tpl'}
+{extends file=$layout}
 
-{block name='brand_header'}
-  <h1>{l s='Suppliers' d='Shop.Theme.Catalog'}</h1>
+{block name='content'}
+  <section id="main">
+
+    {if isset($suppliers)}
+      <h1>{l s='Suppliers' d='Shop.Theme.Catalog'}</h1>
+      <ul>
+        {foreach from=$suppliers item=supplier}
+          {include file='catalog/_partials/miniatures/supplier.tpl' supplier=$supplier}
+        {/foreach}
+      </ul>
+    {else}
+      <h1>{l s='Suppliers' d='Shop.Theme.Catalog'}</h1>
+      <ul>
+        {foreach from=$brands item=brand}
+          {include file='catalog/_partials/miniatures/brand.tpl' brand=$brand}
+        {/foreach}
+      </ul>
+    {/if}
+
+  </section>
 {/block}

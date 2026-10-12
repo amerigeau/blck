@@ -8,6 +8,6 @@
     <description>Template configuration.</description>
     <ps_versions_compliancy>
         <min>1.7.0.0</min>
-        <max>8.99.99</max>
+        <max>9.99.99</max>
     </ps_versions_compliancy>
 </module> 

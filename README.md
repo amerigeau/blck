@@ -38,9 +38,9 @@
 #### PrestaShop Versions
 - ✅ **PrestaShop 1.7** (1.7.0.0 to 1.7.8.x)
 - ✅ **PrestaShop 8** (8.0.0 to 8.x.x)
-- ✅ **PrestaShop 9** (9.0.0+)
+- ✅ **PrestaShop 9** (9.0.0 through 9.2)
 
-The BLCK theme is fully compatible with all PrestaShop versions from 1.7.0.0 onwards.
+The BLCK theme is compatible with PrestaShop 1.7, 8 and 9, up to 9.2.
 
 #### System Requirements
 - **PHP:** 7.0 or higher (PHP 8.0+ recommended for PrestaShop 8 and 9)
@@ -226,9 +226,9 @@ The BLCK Config module works by:
 #### Versions PrestaShop
 - ✅ **PrestaShop 1.7** (1.7.0.0 à 1.7.8.x)
 - ✅ **PrestaShop 8** (8.0.0 à 8.x.x)
-- ✅ **PrestaShop 9** (9.0.0+)
+- ✅ **PrestaShop 9** (9.0.0 à 9.2)
 
-Le thème BLCK est entièrement compatible avec toutes les versions de PrestaShop à partir de 1.7.0.0.
+Le thème BLCK est compatible avec PrestaShop 1.7, 8 et 9, jusqu'à la 9.2.
 
 #### Configuration système requise
 - **PHP :** 7.0 ou supérieur (PHP 8.0+ recommandé pour PrestaShop 8 et 9)

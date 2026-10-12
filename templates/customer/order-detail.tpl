@@ -53,8 +53,10 @@
 
       <div class="box">
           <ul>
-            {if $order.carrier.name}
-              <li><strong>{l s='Carrier' d='Shop.Theme.Checkout'}</strong> {$order.carrier.name}</li>
+            {if !isset($order.shipments) || !$order.shipments}
+              {if $order.carrier.name}
+                <li><strong>{l s='Carrier' d='Shop.Theme.Checkout'}</strong> {$order.carrier.name}</li>
+              {/if}
             {/if}
             <li><strong>{l s='Payment method' d='Shop.Theme.Checkout'}</strong> {$order.details.payment}</li>
 
@@ -151,14 +153,25 @@
 
   {block name='order_detail'}
     {if $order.details.is_returnable && !$orderIsVirtual}
-      {include file='customer/_partials/order-detail-return.tpl'}
+      {if isset($order.shipments) && $order.shipments}
+        {include file='customer/_partials/order-detail-return-multishipment.tpl'}
+      {else}
+        {include file='customer/_partials/order-detail-return.tpl'}
+      {/if}
     {else}
-      {include file='customer/_partials/order-detail-no-return.tpl'}
+      {if isset($order.shipments) && $order.shipments}
+        {include file='customer/_partials/order-detail-no-return-multishipment.tpl'}
+      {else}
+        {include file='customer/_partials/order-detail-no-return.tpl'}
+      {/if}
     {/if}
   {/block}
 
   {block name='order_carriers'}
     {if $order.shipping}
+      {if isset($order.shipments) && $order.shipments}
+        {include file='customer/_partials/order-shipments.tpl'}
+      {else}
       <div class="box">
         <table class="table table-striped table-bordered hidden-sm-down">
           <thead class="thead-default">
@@ -206,6 +219,7 @@
           {/foreach}
         </div>
       </div>
+      {/if}
     {/if}
   {/block}
 
