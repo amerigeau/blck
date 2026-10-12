@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## Paid
+
+Module `blckpaid` 1.0.0, branche Paid. Les couleurs et les polices restent dans BLCK Config.
+
+[NOUVEAUTÉ] Barre d'annonce (phrase, lien, couleurs, fermeture pour la session)
+[NOUVEAUTÉ] Seconde image au survol des miniatures produit
+[NOUVEAUTÉ] Ajout au panier collant sur mobile, masqué quand le vrai bouton est visible
+[NOUVEAUTÉ] Checkout une page PrestaShop 9.2 repris aux couleurs des boutons BLCK
+
 ## Version 5.0.2
 
 [CORRECTIF] Page marques : image au format tableau PrestaShop 9, avec repli sur l'URL des versions 1.7 et 8
@@ -31,6 +40,15 @@
 [AJOUT] Intégration de modules PrestaShop populaires
 
 ---
+
+## Paid
+
+Module `blckpaid` 1.0.0, Paid branch. Colors and fonts stay in BLCK Config.
+
+[NEW] Announcement bar (sentence, link, colors, dismissed for the session)
+[NEW] Second image on product miniature hover
+[NEW] Sticky add to cart on mobile, hidden while the real button is on screen
+[NEW] PrestaShop 9.2 one-page checkout dressed with the BLCK button colors
 
 ## Version 5.0.2
 

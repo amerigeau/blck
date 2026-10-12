@@ -1,0 +1,124 @@
+.blck-announce {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  min-height: 40px;
+  padding: 8px 16px;
+  text-align: center;
+  font-size: 13px;
+}
+
+.blck-announce a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.blck-announce a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.blck-announce__close {
+  border: 0;
+  background: transparent;
+  padding: 4px;
+  line-height: 0;
+  cursor: pointer;
+}
+
+.blck-announce__close:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.thumbnail.product-thumbnail {
+  position: relative;
+}
+
+.blck-hover-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity .35s cubic-bezier(.2, .8, .2, 1);
+}
+
+.product-miniature:hover .blck-hover-img,
+.product-miniature:focus-within .blck-hover-img {
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .blck-hover-img {
+    display: none;
+  }
+}
+
+.blck-sticky {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .blck-sticky {
+    display: flex;
+    position: fixed;
+    z-index: 40;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+    background: #fff;
+    color: #161616;
+    border-top: 1px solid #e3e3de;
+    box-shadow: 0 -10px 24px rgb(0 0 0 / .08);
+    transform: translateY(0);
+    transition: transform .25s cubic-bezier(.2, .8, .2, 1);
+  }
+
+  .blck-sticky.is-hidden {
+    transform: translateY(110%);
+  }
+
+  .blck-sticky__name,
+  .blck-sticky__price {
+    margin: 0;
+  }
+
+  .blck-sticky__name {
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 48vw;
+  }
+
+  .blck-sticky__price {
+    font-size: 12px;
+  }
+
+  .blck-sticky__add {
+    margin-left: auto;
+    border: 0;
+    height: 40px;
+    padding: 0 14px;
+    background: var(--blck-btn-primary-bg, #161616);
+    color: var(--blck-btn-primary-text, #fff);
+    white-space: nowrap;
+    cursor: pointer;
+  }
+
+  .blck-sticky__add:disabled {
+    opacity: .45;
+    cursor: not-allowed;
+  }
+
+  .blck-sticky__add:focus-visible {
+    outline: 2px solid var(--blck-secondary-color, #fba000);
+    outline-offset: 2px;
+  }
+}

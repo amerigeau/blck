@@ -49,6 +49,7 @@ assets:
 dependencies:
   modules:
     - blckconfig
+    - blckpaid
 
 global_settings:
   configuration:
@@ -57,8 +58,13 @@ global_settings:
     to_enable:
       - ps_linklist
       - blckconfig
+      - blckpaid
   hooks:
     modules_to_hook:
+      displayBanner:
+        - blckpaid
+      displayBeforeBodyClosingTag:
+        - blckpaid
       displayAfterBodyOpeningTag:
         - blockreassurance
       displayNavFullWidth:

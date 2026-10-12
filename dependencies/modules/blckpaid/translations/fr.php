@@ -1,0 +1,30 @@
+<?php
+
+global $_MODULE;
+$_MODULE = array();
+$_MODULE['<{blckpaid}prestashop>blckpaid_b12f052d598a9ea45be3bc8fd39e84a3'] = 'BLCK Paid';
+$_MODULE['<{blckpaid}prestashop>blckpaid_01e33a6bbb7337818a780e928fb50798'] = 'Options payantes du thème BLCK. Les couleurs et les polices restent dans BLCK Config.';
+$_MODULE['<{blckpaid}prestashop>blckpaid_0f7065fa1504536e15de5149c647bec7'] = 'Ouvrir BLCK Config';
+$_MODULE['<{blckpaid}prestashop>blckpaid_d818929bd2c94b79138f8a27c4908f05'] = 'Barre d\'annonce';
+$_MODULE['<{blckpaid}prestashop>blckpaid_637fd396120164a0db7cbfb638891c98'] = 'Une ligne au-dessus du header. Laissez-la éteinte tant que la phrase n\'est pas prête.';
+$_MODULE['<{blckpaid}prestashop>blckpaid_8d2e52e4fefdd9bd21a69285be9e181c'] = 'Afficher la barre';
+$_MODULE['<{blckpaid}prestashop>blckpaid_0667fab375c18f4a0f29beec635b1b87'] = 'Phrase';
+$_MODULE['<{blckpaid}prestashop>blckpaid_97e7c9a7d06eac006a28bf05467fcc8b'] = 'Lien';
+$_MODULE['<{blckpaid}prestashop>blckpaid_d528c2b75ad08fa40ca704bc606de5b1'] = 'Ouvrir dans un nouvel onglet';
+$_MODULE['<{blckpaid}prestashop>blckpaid_a9ded1e5ce5d75814730bb4caaf49419'] = 'Fond';
+$_MODULE['<{blckpaid}prestashop>blckpaid_9dffbf69ffba8bc38bc4e01abf4b1675'] = 'Texte';
+$_MODULE['<{blckpaid}prestashop>blckpaid_d2dc4b1cdef199febd3f4be40f63395f'] = 'La barre reste masquée tant qu\'elle est éteinte.';
+$_MODULE['<{blckpaid}prestashop>blckpaid_fa1863c91d94225ada645bbccf0a6b57'] = 'Écrivez la phrase pour voir la barre.';
+$_MODULE['<{blckpaid}prestashop>blckpaid_5561b8fe4401e65bfedd0c28a6eb90bc'] = 'Ce couple de couleurs se lit mal.';
+$_MODULE['<{blckpaid}prestashop>blckpaid_d90a54e497fa514c719fb2d7d4b26466'] = 'Seconde image';
+$_MODULE['<{blckpaid}prestashop>blckpaid_f15c8f8c4203766fc233dfc0386dcb3a'] = 'Sur une catégorie ou la page d\'accueil, la photo suivante remplace la couverture tant que le pointeur est sur le produit.';
+$_MODULE['<{blckpaid}prestashop>blckpaid_628dedbb3538c0b02c7b50d5b72cb790'] = 'Activer l\'image au survol';
+$_MODULE['<{blckpaid}prestashop>blckpaid_bfd514dd9965b620b4a9123f4ac9790b'] = 'Ajout au panier collant';
+$_MODULE['<{blckpaid}prestashop>blckpaid_dfa1e250623b1dee2ee88b09eefcdd6d'] = 'Sur téléphone, le prix et le bouton d\'ajout restent en bas de la fiche produit, et se cachent quand le vrai bouton est à l\'écran.';
+$_MODULE['<{blckpaid}prestashop>blckpaid_be1875844d62af18e8258b7969a88e09'] = 'Activer la barre collante';
+$_MODULE['<{blckpaid}prestashop>blckpaid_6ff063fbc860a79759a7369ac32cee22'] = 'Commande';
+$_MODULE['<{blckpaid}prestashop>blckpaid_c06804b885d71befd06c0755d868ff86'] = 'Quand le checkout une page de PrestaShop 9.2 est actif, ses boutons et ses anneaux de focus reprennent les couleurs des boutons BLCK.';
+$_MODULE['<{blckpaid}prestashop>blckpaid_5fa080e2e803a1daa13b18fb3174ce27'] = 'Reprendre les couleurs BLCK sur la commande';
+$_MODULE['<{blckpaid}prestashop>blckpaid_c9cc8cce247e49bae79f15173ce97354'] = 'Enregistrer';
+$_MODULE['<{blckpaid}prestashop>blckpaid_2bcf4d0012d8fec18f5b97a1f307c958'] = 'Enregistré.';
+$_MODULE['<{blckpaid}prestashop>blckpaid_dee0b7b457a15d8a5774bfa1f621d0e7'] = 'Vérifiez les couleurs. Chacune doit être un hex complet, comme #111111.';

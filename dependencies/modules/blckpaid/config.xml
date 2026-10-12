@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+    <name>blckpaid</name>
+    <displayName>BLCK Paid</displayName>
+    <version>1.0.0</version>
+    <author>Latoutfrancais - Arnaud Merigeau</author>
+    <tab>front_office_features</tab>
+    <description>Paid options for the BLCK theme.</description>
+    <ps_versions_compliancy>
+        <min>1.7.0.0</min>
+        <max>9.99.99</max>
+    </ps_versions_compliancy>
+</module>

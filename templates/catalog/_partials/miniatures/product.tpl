@@ -42,6 +42,14 @@
                   height="{$product.cover.bySize.home_default.height}"
                 />
               </picture>
+              {if isset($blck_paid_hover) && $blck_paid_hover && isset($product.images)}
+                {foreach from=$product.images item=image}
+                  {if $image.id_image != $product.cover.id_image && !empty($image.bySize.home_default.url)}
+                    <img class="blck-hover-img" src="{$image.bySize.home_default.url}" alt="" loading="lazy" width="{$image.bySize.home_default.width}" height="{$image.bySize.home_default.height}">
+                    {break}
+                  {/if}
+                {/foreach}
+              {/if}
             </a>
           {else}
             <a href="{$product.url}" class="thumbnail product-thumbnail">
