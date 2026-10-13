@@ -106,7 +106,7 @@ class BlckPaid extends Module
             ),
         ));
 
-        return $this->display(__FILE__, 'admin/configure.tpl');
+        return $this->display(__FILE__, 'views/templates/admin/configure.tpl');
     }
 
     public function hookActionFrontControllerSetMedia()
